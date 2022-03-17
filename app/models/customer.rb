@@ -5,4 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable #, :validatable
   has_one_attached :image
   validates :full_name, presence: true
+  def image_resized
+    image.variant(resize_to_limit: [75,100]).processed
+  end
 end

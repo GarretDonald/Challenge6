@@ -6,4 +6,8 @@ class CustomersController < ApplicationController
   def alphabet
     @customers = Customer.all.order("full_name ASC")
   end
+
+  def no_email
+    @customers = Customer.all.where("email = ?", "")
+  end
 end

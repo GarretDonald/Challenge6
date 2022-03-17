@@ -1,19 +1,20 @@
-<div class="columns is-multiline">
+<div class="columns is-multiline is-centered">
     <% @customers.each do |cust| %>
-        <div class="column card is-one-fifth mr-2">
+        <div class="column card is-2 mr-2">
             <div class="card-content">
                 <div class="media-content">
-                    <p class="title is-4"><%= cust.full_name %></p>
+                    <p class="title is-4 is-flex is-justify-content-center"><%= cust.full_name %></p>
                 </div>
             </div>
-            <div class="card-image">
-                <figure class="image">
-                    <%= image_tag(cust.image) if cust.image.attached?  %>
+            <div class="card-image is-flex is-justify-content-center">
+                <figure>
+                    <%= image_tag(cust.image_resized) if cust.image.attached?  %>
                 </figure>
             </div>
             <div class="card-content">
-                <p><%= cust.email %></p>
-                <p><%= cust.phone_number %></p>
+                <p class="is-flex is-justify-content-center">Province: Manitoba</p>
+                <p class="is-flex is-justify-content-center  mt-5"><%= cust.email %></p>
+                <p class="is-flex is-justify-content-center  mt-5"><%= cust.phone_number %></p>
             </div>
         </div>
     <% end %>
